@@ -11,7 +11,7 @@ export const signup = async (req, res) => {
     const user = await User.findOne({ username });
 
     if (user) {
-      return res.status(400).json({ error: "Username already exists" });
+      return res.status(201).json({ error: "Username already exists" });
     }
 
     const salt = await bcryptjs.genSalt(10);
@@ -72,10 +72,21 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
   try {
-    res.cookie("jwt", "", { maxAge: 0 });
+    if (!req.cookies.jwt) {
+      return res
+        .status(200)
+        .json({ message: "Already logged out, first login." });
+    }
+
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      sameSite: "lax",
+      secure: process.env.NODE_ENV !== "development",
+    });
+
     res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
-    console.log("Error in logout");
+    console.log("Error in logout:", error);
     res.status(500).json({ error: "Internal server error" });
   }
 };
