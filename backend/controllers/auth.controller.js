@@ -25,7 +25,7 @@ export const signup = async (req, res) => {
       username,
       password: hashedPassword,
       gender,
-      profiePic: gender === "Male" ? boyProfilePic : girlProfilePic,
+      profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
     });
 
     if (newUser) {
@@ -36,7 +36,7 @@ export const signup = async (req, res) => {
       _id: newUser._id,
       fullName: newUser.fullName,
       username: newUser.username,
-      profiePic: newUser.profiePic,
+      profilePic: newUser.profilePic,
     });
   } catch (error) {
     console.log("error in signing up : ", error);
@@ -63,7 +63,7 @@ export const login = async (req, res) => {
       _id: user._id,
       fullName: user.fullName,
       username: user.username,
-      profiePic: user.profiePic,
+      profilePic: user.profilePic,
     });
   } catch (error) {
     console.log("error in login");

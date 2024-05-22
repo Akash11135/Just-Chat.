@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 body {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", */
+  /* "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
   background: linear-gradient(rgba(0, 0, 0, 0.137), rgba(0, 0, 0, 0.252)),
     url("/bg.png");
   background-repeat: no-repeat;

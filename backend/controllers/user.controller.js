@@ -1,4 +1,3 @@
-import Conversation from "../models/conversation.model.js";
 import User from "../models/user.model.js";
 
 const getUsersForSideBar = async (req, res) => {
