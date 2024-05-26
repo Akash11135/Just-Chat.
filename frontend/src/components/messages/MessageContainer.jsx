@@ -3,9 +3,15 @@ import useConversation from "../../zustand/useConversation.jsx";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import { TiMessages } from "react-icons/ti";
+import { IoIosArrowRoundBack } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 const MessageContainer = () => {
-  const { selectedConversation } = useConversation();
+  const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate("/conversation");
+  };
+  const { selectedConversation } = useConversation();
   const { authUser } = useAuthContext();
   const name = authUser.fullName;
   return (
@@ -14,11 +20,25 @@ const MessageContainer = () => {
         <NoChatSelected name={name} />
       ) : (
         <>
-          <div className="bg-slate-500 px-4 py-2 mb-2">
-            <span className="label-text">To:</span>{" "}
-            <span className="text-gray-900 font-bold">
-              {selectedConversation.username}
-            </span>
+          <div className="flex bg-slate-500 px-4 py-2 mb-2 justify-between items-center">
+            <div className=" flex gap-3">
+              <span>
+                <img
+                  src={selectedConversation.profilePic}
+                  className="h-6"
+                  alt=""
+                />
+              </span>{" "}
+              <span className="text-gray-900 font-bold">
+                {selectedConversation.username}
+              </span>
+            </div>
+            <div
+              className="text-white text-2xl border border-black rounded-xl bg-slate-900 hover:bg-white hover:text-black transition duration-300 ease-in-out"
+              onClick={handleClick}
+            >
+              <IoIosArrowRoundBack />
+            </div>
           </div>
 
           <Messages />

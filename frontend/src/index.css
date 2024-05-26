@@ -1,11 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 body {
-  /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", */
-  /* "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
-  background: linear-gradient(rgba(0, 0, 0, 0.137), rgba(0, 0, 0, 0.252)),
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  background: linear-gradient(rgba(0, 0, 0, 0.529), rgba(0, 0, 0, 0.252)),
     url("/bg.png");
   background-repeat: no-repeat;
   background-size: cover;

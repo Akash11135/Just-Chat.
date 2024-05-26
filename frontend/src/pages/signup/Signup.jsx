@@ -25,7 +25,7 @@ function Signup() {
 
   return (
     <div className="flex flex-col items-center justify-center min-w-96 mx-auto">
-      <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-15">
+      <div className="w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-15 ">
         <h1 className="text-3xl font-semibold text-center text-gray-300">
           SignUp
           <span className="text-black"> ChatApp</span>
@@ -34,7 +34,7 @@ function Signup() {
         <form onSubmit={handleSubmit}>
           <div>
             <label className="label p-2">
-              <span className="text-base label-text">Full Name</span>
+              <span className="text-base label-text text-black">Full Name</span>
             </label>
             <input
               type="text"
@@ -49,12 +49,12 @@ function Signup() {
 
           <div>
             <label className="label p-2 ">
-              <span className="text-base label-text">Username</span>
+              <span className="text-base label-text text-black">Username</span>
             </label>
             <input
               type="text"
               placeholder="johndoe"
-              className="w-full input input-bordered h-10"
+              className="w-full input input-bordered h-10 text-black"
               value={inputs.username}
               onChange={(e) =>
                 setInputs({ ...inputs, username: e.target.value })
@@ -64,7 +64,7 @@ function Signup() {
 
           <div>
             <label className="label">
-              <span className="text-base label-text">Password</span>
+              <span className="text-base label-text text-black">Password</span>
             </label>
             <input
               type="password"
@@ -79,7 +79,9 @@ function Signup() {
 
           <div>
             <label className="label">
-              <span className="text-base label-text">Confirm Password</span>
+              <span className="text-base label-text text-black">
+                Confirm Password
+              </span>
             </label>
             <input
               type="password"
@@ -96,7 +98,7 @@ function Signup() {
             selectedGender={inputs.gender}
           />
           <Link
-            className="text-sm hover:underline hover:text-blue-600 mt-2 inline-block"
+            className="text-sm hover:underline hover:text-blue-600 mt-2 inline-block text-black"
             to="/login"
           >
             Already have an account?
