@@ -4,16 +4,16 @@ import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import { TiMessages } from "react-icons/ti";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
-const MessageContainer = () => {
-  const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/conversation");
-  };
+const MessageContainer = () => {
   const { selectedConversation } = useConversation();
   const { authUser } = useAuthContext();
   const name = authUser.fullName;
+
+  const handleClick = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="md:min-w-[450px] flex flex-col">
       {!selectedConversation ? (
@@ -33,11 +33,8 @@ const MessageContainer = () => {
                 {selectedConversation.username}
               </span>
             </div>
-            <div
-              className="text-white text-2xl border border-black rounded-xl bg-slate-900 hover:bg-white hover:text-black transition duration-300 ease-in-out"
-              onClick={handleClick}
-            >
-              <IoIosArrowRoundBack />
+            <div className="text-white text-2xl border border-black rounded-xl bg-slate-900 hover:bg-white hover:text-black transition duration-300 ease-in-out">
+              <IoIosArrowRoundBack onClick={handleClick} />
             </div>
           </div>
 
